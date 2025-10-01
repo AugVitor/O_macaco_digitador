@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados para SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CodeTyper: Teste de digitação focado em código para programadores. Melhore sua velocidade em linguagens como JavaScript, Python, C e C++.">
+    <meta name="keywords" content="teste digitação, programação, código, WPM, precisão">
+    <meta name="author" content="Equipe de Desenvolvimento Web">
+    <title>CodeTyper - Teste de Digitação para Programadores</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- 
+    ====================================
+    Projeto: Teste de Digitação para Programadores
+    Arquivo: index.html
+    Autores: Equipe de Desenvolvimento Web
+    Descrição: Estrutura HTML principal com seções para o teste, sobre e contato.
+    ====================================
+    -->
+
+    <!-- ==================== Navbar ==================== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-text">Macaco digitador</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link active">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== Container Principal ==================== -->
+    <main class="main-container" id="inicio">
+        <!-- ==================== Controles ==================== -->
+        <section class="controls">
+            <div class="language-selector">
+                <label for="language">Linguagem:</label>
+                <select id="language" class="language-select">
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="all">Todas</option>
+                </select>
+            </div>
+        <!--div dos possiveis tipos de tempo dos testes-->
+            <div class="time-selector">
+                <label for="time">Tempo:</label>
+                <select id="time" class="time-select">
+                    <option value="30">30s</option>
+                    <option value="60" selected>60s</option>
+                    <option value="90">90s</option>
+                    <option value="120">120s</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- ==================== Painel de Estatísticas ==================== -->
+        <section class="stats-panel">
+            <div class="stat-box">
+                <span class="stat-label">Tempo</span>
+                <span class="stat-value" id="timer">60</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">WPM</span>
+                <span class="stat-value" id="wpm">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">CPM</span>
+                <span class="stat-value" id="cpm">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">Precisão</span>
+                <span class="stat-value" id="accuracy">100%</span>
+            </div>
+        </section>
+
+        <!-- ==================== Área de Digitação ==================== -->
+        <section class="typing-area">
+            <div class="code-display" id="code-display">
+                Clique no botão iniciar para começar...
+            </div>
+            <textarea id="input-field" class="input-field" placeholder="Comece a digitar aqui..." disabled></textarea>
+            <button id="start-btn" class="btn btn-primary">Iniciar Teste</button>
+            <button id="reset-btn" class="btn btn-secondary" style="display: none;">Reiniciar</button>
+        </section>
+
+        <!-- ==================== Modal de Resultados ==================== -->
+        <div id="results-modal" class="modal">
+            <div class="modal-content">
+                <h2>Resultados do Teste</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <span class="result-label">Velocidade Final</span>
+                        <span class="result-value" id="final-wpm">0 WPM</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Precisão</span>
+                        <span class="result-value" id="final-accuracy">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Caracteres Totais</span>
+                        <span class="result-value" id="total-chars">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Erros</span>
+                        <span class="result-value" id="total-errors">0</span>
+                    </div>
+                </div>
+                <button id="close-modal" class="btn btn-primary">Tentar Novamente</button>
+            </div>
+        </div>
+
+        <!-- ==================== Histórico ==================== -->
+        <section class="history-section">
+            <h3>Histórico Recente</h3>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Data/Hora</th>
+                        <th>WPM</th>
+                        <th>Precisão</th>
+                        <th>Linguagem</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- ==================== Seção Sobre ==================== -->
+    <section id="sobre" class="about-section">
+        <div class="about-container">
+            <h2>Sobre o Macaco digitador</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Objetivo</h3>
+                    <p>O digitador foi epirado no keybr(site no qual é possível treinar digitação') . Diferente dos testes normais do keybr, focas em trechos reais de código das linguagens mais populares.</p>
+                    <h3>Por que é importante?</h3>
+                    <p>Digitar código é diferente de digitar texto comum. Símbolos especiais, indentação, e sintaxe específica exigem prática dedicada. Com o Macaco digitador, você pratica exatamente o que usa no dia a dia.</p>
+                    <h3>Características</h3>
+                    <ul class="features-list">
+                        <li>✓ Trechos reais de código em múltiplas linguagens</li>
+                        <li>✓ Métricas detalhadas de desempenho</li>
+                        <li>✓ Interface limpa e minimalista</li>
+                        <li>✓ Histórico de progresso</li>
+                        <li>✓ Design responsivo para todos os dispositivos</li>
+                    </ul>
+                </div>
+                <div class="mockup-device">
+                    <div class="mockup-screen">
+                        <pre class="mockup-code">
+function calculate() {
+  const result = 42;
+  return result;
+}
+                        </pre>
+                        <div class="mockup-stats">
+                            <span>85 WPM</span>
+                            <span>98% Precisão</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Seção Contato ==================== -->
+    <section id="contato" class="contact-section">
+        <div class="contact-container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-info">
+                <p>📧 d2025016766@unifei.edu.br</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
