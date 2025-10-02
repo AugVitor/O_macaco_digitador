@@ -1,8 +1,6 @@
 /* 
-====================================
-Projeto: Teste de Digitação para Programadores
 Arquivo: script.js
-====================================
+Aluno: Vitor Augusto Cavalcante Da Silva
 */
 
 const codeSnippets = {
